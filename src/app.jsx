@@ -6,6 +6,7 @@ import { Logo } from "./components/logo.jsx";
 
 let initialValues = {
   bill: "",
+  currency: "USD",
   tip: "0.15",
   peopleCount: "",
 };

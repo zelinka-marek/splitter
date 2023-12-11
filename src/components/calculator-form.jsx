@@ -28,9 +28,24 @@ export function CalculatorForm({ values, onValueChange }) {
             required
             min={0.01}
             step={0.01}
-            className="pl-7"
+            className="pl-7 pr-20"
             placeholder="0.00"
           />
+          <div className="absolute inset-y-0 right-0 flex items-center">
+            <select
+              id="currency"
+              name="currency"
+              value={values.currency}
+              onChange={handleChange}
+              required
+              className="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm"
+              aria-label="Currency"
+            >
+              <option>USD</option>
+              <option>CAD</option>
+              <option>EUR</option>
+            </select>
+          </div>
         </div>
       </div>
       <div>
