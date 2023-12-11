@@ -1,5 +1,7 @@
-import { Logo } from "./components/logo.jsx";
+import { ArrowPathIcon } from "@heroicons/react/20/solid";
 import { CalculatorForm } from "./components/calculator-form.jsx";
+import { CalculatorResults } from "./components/calculator-results.jsx";
+import { Logo } from "./components/logo.jsx";
 
 export default function App() {
   return (
@@ -20,6 +22,26 @@ export default function App() {
       </div>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <CalculatorForm />
+        <div className="mt-10 space-y-6">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center" aria-hidden>
+              <div className="w-full border-t border-gray-300" />
+            </div>
+            <div className="relative flex items-center justify-between">
+              <span className="bg-white pr-3 text-base/6 font-semibold text-gray-900">
+                Results
+              </span>
+              <button
+                type="button"
+                className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+              >
+                <ArrowPathIcon className="-ml-1 -mr-0.5 h-5 w-5 text-gray-400" />
+                Reset
+              </button>
+            </div>
+          </div>
+          <CalculatorResults />
+        </div>
       </div>
     </div>
   );

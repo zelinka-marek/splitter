@@ -1,5 +1,5 @@
 import { UsersIcon } from "@heroicons/react/20/solid";
-import { Input, Label, Select } from "./forms";
+import { Input, Label, Select } from "./forms.jsx";
 
 export function CalculatorForm() {
   return (
