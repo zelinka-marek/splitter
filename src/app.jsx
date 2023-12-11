@@ -1,4 +1,5 @@
 import { Logo } from "./components/logo.jsx";
+import { CalculatorForm } from "./components/calculator-form.jsx";
 
 export default function App() {
   return (
@@ -16,6 +17,9 @@ export default function App() {
             </span>
           </p>
         </div>
+      </div>
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <CalculatorForm />
       </div>
     </div>
   );
