@@ -1,7 +1,13 @@
 import { UsersIcon } from "@heroicons/react/20/solid";
 import { Input, Label, Select } from "./forms.jsx";
 
-export function CalculatorForm() {
+export function CalculatorForm({ values, onValueChange }) {
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    onValueChange(name, value);
+  }
+
   return (
     <form noValidate className="space-y-6">
       <div>
@@ -17,9 +23,11 @@ export function CalculatorForm() {
             type="number"
             id="bill"
             name="bill"
+            value={values.bill}
+            onChange={handleChange}
             required
-            min="0.01"
-            step="0.01"
+            min={0.01}
+            step={0.01}
             className="pl-7"
             placeholder="0.00"
           />
@@ -28,7 +36,13 @@ export function CalculatorForm() {
       <div>
         <Label htmlFor="tip">Select tip %</Label>
         <div className="mt-2">
-          <Select id="tip" name="tip">
+          <Select
+            id="tip"
+            name="tip"
+            value={values.tip}
+            onChange={handleChange}
+            required
+          >
             <option value="0.05">5%</option>
             <option value="0.1">10%</option>
             <option value="0.15">15%</option>
@@ -48,6 +62,8 @@ export function CalculatorForm() {
             type="number"
             id="peopleCount"
             name="peopleCount"
+            value={values.peopleCount}
+            onChange={handleChange}
             required
             min="2"
             step="1"

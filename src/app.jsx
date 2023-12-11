@@ -1,9 +1,26 @@
 import { ArrowPathIcon } from "@heroicons/react/20/solid";
+import { useState } from "react";
 import { CalculatorForm } from "./components/calculator-form.jsx";
 import { CalculatorResults } from "./components/calculator-results.jsx";
 import { Logo } from "./components/logo.jsx";
 
+let initialValues = {
+  bill: "",
+  tip: "0.15",
+  peopleCount: "",
+};
+
 export default function App() {
+  let [values, setValues] = useState(initialValues);
+
+  function handleValueChange(id, value) {
+    setValues((values) => ({ ...values, [id]: value }));
+  }
+
+  function handleReset() {
+    setValues(initialValues);
+  }
+
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -21,7 +38,7 @@ export default function App() {
         </div>
       </div>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <CalculatorForm />
+        <CalculatorForm values={values} onValueChange={handleValueChange} />
         <div className="mt-10 space-y-6">
           <div className="relative">
             <div className="absolute inset-0 flex items-center" aria-hidden>
@@ -33,6 +50,7 @@ export default function App() {
               </span>
               <button
                 type="button"
+                onClick={handleReset}
                 className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
               >
                 <ArrowPathIcon className="-ml-1 -mr-0.5 h-5 w-5 text-gray-400" />
@@ -40,7 +58,7 @@ export default function App() {
               </button>
             </div>
           </div>
-          <CalculatorResults />
+          <CalculatorResults values={values} />
         </div>
       </div>
     </div>
