@@ -35,17 +35,17 @@ export function CalculatorResults({ values }) {
   return (
     <dl className="space-y-6">
       <div className="space-y-2">
-        <dt className="text-sm/6 font-medium text-gray-700">Tip amount</dt>
+        <dt className="text-sm/6 font-medium text-gray-500">Tip amount</dt>
         <dd className="flex items-baseline gap-2 text-4xl font-semibold tracking-tight text-gray-900">
           {formatCurrency(tipPerPerson, values.currency)}
-          <span className="text-sm font-medium text-gray-500">per person</span>
+          <span className="text-sm font-medium text-gray-400">per person</span>
         </dd>
       </div>
       <div className="space-y-2">
-        <dt className="text-sm/6 font-medium text-gray-700">Total amount</dt>
+        <dt className="text-sm/6 font-medium text-gray-500">Total amount</dt>
         <dd className="flex items-baseline gap-2 text-4xl font-semibold tracking-tight text-gray-900">
           {formatCurrency(totalPerPerson, values.currency)}
-          <span className="text-sm font-medium text-gray-500">per person</span>
+          <span className="text-sm font-medium text-gray-400">per person</span>
         </dd>
       </div>
     </dl>
