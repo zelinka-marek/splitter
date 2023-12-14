@@ -1,4 +1,4 @@
-# Spliiter
+# Splitter
 
 This is an application designed to help users split their expenses with friends & colleagues.
 
