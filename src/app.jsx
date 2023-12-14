@@ -1,25 +1,25 @@
 import { ArrowPathIcon } from "@heroicons/react/20/solid";
-import { useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 import { CalculatorForm } from "./components/calculator-form.jsx";
 import { CalculatorResults } from "./components/calculator-results.jsx";
 import { Logo } from "./components/logo.jsx";
 
-let initialValues = {
-  bill: "",
-  currency: "USD",
-  tip: "0.15",
-  peopleCount: "",
-};
+let defaultValues = { currency: "USD", tip: 0.15 };
 
 export default function App() {
-  let [values, setValues] = useState(initialValues);
+  let form = useForm({
+    mode: "onChange",
+    defaultValues,
+  });
 
-  function handleValueChange(id, value) {
-    setValues((values) => ({ ...values, [id]: value }));
-  }
+  let errors = form.formState.errors;
+  let bill = form.watch("bill");
+  let currency = form.watch("currency");
+  let tip = form.watch("tip");
+  let peopleCount = form.watch("peopleCount");
 
   function handleReset() {
-    setValues(initialValues);
+    form.reset();
   }
 
   return (
@@ -39,7 +39,9 @@ export default function App() {
         </div>
       </div>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <CalculatorForm values={values} onValueChange={handleValueChange} />
+        <FormProvider {...form}>
+          <CalculatorForm />
+        </FormProvider>
         <div className="mt-10 space-y-6">
           <div className="relative">
             <div className="absolute inset-0 flex items-center" aria-hidden>
@@ -59,7 +61,10 @@ export default function App() {
               </button>
             </div>
           </div>
-          <CalculatorResults values={values} />
+          <CalculatorResults
+            values={{ bill, currency, tip, peopleCount }}
+            errors={errors}
+          />
         </div>
       </div>
     </div>
