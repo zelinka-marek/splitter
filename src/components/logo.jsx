@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 export function Logo({ className }) {
   return (
     <svg
@@ -12,7 +10,3 @@ export function Logo({ className }) {
     </svg>
   );
 }
-
-Logo.propTypes = {
-  className: PropTypes.string,
-};

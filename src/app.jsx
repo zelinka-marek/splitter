@@ -4,19 +4,19 @@ import { CalculatorForm } from "./components/calculator-form.jsx";
 import { CalculatorResults } from "./components/calculator-results.jsx";
 import { Logo } from "./components/logo.jsx";
 
-let defaultValues = { currency: "USD", tip: 0.15 };
+const defaultValues = { currency: "USD", tip: 0.15 };
 
 export default function App() {
-  let form = useForm({
+  const form = useForm({
     mode: "onChange",
     defaultValues,
   });
 
-  let errors = form.formState.errors;
-  let bill = form.watch("bill");
-  let currency = form.watch("currency");
-  let tip = form.watch("tip");
-  let peopleCount = form.watch("peopleCount");
+  const errors = form.formState.errors;
+  const bill = form.watch("bill");
+  const currency = form.watch("currency");
+  const tip = form.watch("tip");
+  const peopleCount = form.watch("peopleCount");
 
   function handleReset() {
     form.reset();

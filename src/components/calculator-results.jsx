@@ -15,7 +15,7 @@ function shouldCalculateValues({ bill, tip, peopleCount }, errors) {
 }
 
 export function CalculatorResults({ values, errors }) {
-  let shouldCalculate = shouldCalculateValues(
+  const shouldCalculate = shouldCalculateValues(
     {
       bill: values.bill,
       tip: values.tip,
@@ -24,10 +24,10 @@ export function CalculatorResults({ values, errors }) {
     errors,
   );
 
-  let tipPerPerson = shouldCalculate
+  const tipPerPerson = shouldCalculate
     ? (values.bill * values.tip) / values.peopleCount
     : 0;
-  let totalPerPerson = shouldCalculate
+  const totalPerPerson = shouldCalculate
     ? values.bill / values.peopleCount + tipPerPerson
     : 0;
 

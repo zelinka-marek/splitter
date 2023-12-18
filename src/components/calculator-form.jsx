@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { Input, Label, Select } from "./forms.jsx";
 
 export function CalculatorForm() {
-  let form = useFormContext();
+  const form = useFormContext();
 
   return (
     <form className="space-y-6">
