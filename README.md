@@ -4,6 +4,8 @@ This is an application designed to help users split their expenses with friends 
 
 This is a personal project for practicing skills.
 
+![](https://github.com/zelinka-marek/splitter/assets/97283432/e2acfc23-3ed0-4044-acdb-0960263eaee9)
+
 [LIVE DEMO](https://splitter-mzelinka17.vercel.app/)
 
 ## Table of Contents
